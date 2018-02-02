@@ -15,3 +15,11 @@ An interactive process viewer for Unix systems, a replacement for the regular **
 ```
 brew install htop
 ```
+
+### ripgrep (https://github.com/BurntSushi/ripgrep)
+
+Grep replacement, optimized for developers
+
+```
+brew install ripgrep
+```
