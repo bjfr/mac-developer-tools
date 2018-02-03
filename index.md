@@ -36,4 +36,4 @@ brew install ripgrep
 
 ### httpbin (https://httpbin.org/)
 
-Online service to test HTTP requests. Online Service.
+Online service to test HTTP requests. 
