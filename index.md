@@ -34,6 +34,16 @@ Grep replacement, optimized for developers
 brew install ripgrep
 ```
 
+### iterm2 (https://www.iterm2.com/)
+
+Terminal replacement on stereoids
+
+```
+brew cask install iterm2
+```
+
+## Online services for developers (not only Mac)
+
 ### httpbin (https://httpbin.org/)
 
 Online service to test HTTP requests. 
