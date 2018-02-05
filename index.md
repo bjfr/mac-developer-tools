@@ -1,4 +1,12 @@
-## Curated list of Mac OsX developer tools
+# Curated list of Mac OsX developer tools
+
+### homebrew (https://brew.sh/)
+
+The missing package manager for macOS.
+
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
 ### httpie (https://httpie.org/)
 
@@ -42,7 +50,7 @@ Terminal replacement on stereoids
 brew cask install iterm2
 ```
 
-## Online services for developers (not only Mac)
+# Online services for developers (not only Mac)
 
 ### httpbin (https://httpbin.org/)
 
