@@ -16,6 +16,14 @@ HTTPie is a command line HTTP client with an intuitive UI, JSON support, syntax 
 brew install httpie
 ```
 
+### HTTP Prompt (http://http-prompt.com/)
+
+HTTP Prompt is an interactive command-line HTTP client featuring autocomplete and syntax highlighting.
+
+```
+pip install http-prompt
+```
+
 ### htop (https://hisham.hm/htop/)
 
 An interactive process viewer for Unix systems, a replacement for the regular **top** command.
