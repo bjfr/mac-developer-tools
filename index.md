@@ -58,6 +58,15 @@ Terminal replacement on stereoids
 brew cask install iterm2
 ```
 
+### clipy (https://github.com/Clipy/Clipy)
+
+Clipboard history manager
+
+```
+brew cask install clipy
+```
+
+
 # Online services for developers (not only Mac)
 
 ### httpbin (https://httpbin.org/)
