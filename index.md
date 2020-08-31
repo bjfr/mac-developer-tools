@@ -71,7 +71,15 @@ brew cask install clipy
 cat and less replacement with syntax highlighting and git integration
 
 ```
-brew cask install bat
+brew install bat
+```
+
+### JetBrains Mono font (https://github.com/sharkdp/bat)
+
+Best font for development
+
+```
+brew cask install font-jetbrains-mono
 ```
 
 # Online services for developers (not only Mac)
