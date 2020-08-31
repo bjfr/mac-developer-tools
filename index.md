@@ -82,6 +82,14 @@ Best font for development
 brew cask install font-jetbrains-mono
 ```
 
+### Visual Studio Code (https://code.visualstudio.com/) (https://github.com/microsoft/vscode)
+
+Free code editor
+
+```
+brew cask install visual-studio-code
+```
+
 # Online services for developers (not only Mac)
 
 ### httpbin (https://httpbin.org/)
