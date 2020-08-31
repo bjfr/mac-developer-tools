@@ -66,6 +66,13 @@ Clipboard history manager
 brew cask install clipy
 ```
 
+### bat (https://github.com/sharkdp/bat)
+
+cat and less replacement with syntax highlighting and git integration
+
+```
+brew cask install bat
+```
 
 # Online services for developers (not only Mac)
 
