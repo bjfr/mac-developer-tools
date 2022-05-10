@@ -94,4 +94,10 @@ brew cask install visual-studio-code
 
 ### httpbin (https://httpbin.org/)
 
-Online service to test HTTP requests. 
+Online service to test HTTP requests.
+
+### IT-Tools (https://it-tools.tech/)
+
+Random simple tols for encryption, hashing, conversion etc.
+
+
