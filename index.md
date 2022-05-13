@@ -98,6 +98,6 @@ Online service to test HTTP requests.
 
 ### IT-Tools (https://it-tools.tech/)
 
-Random simple tols for encryption, hashing, conversion etc.
+Random simple tools for encryption, hashing, conversion etc.
 
 
