@@ -50,6 +50,22 @@ Grep replacement, optimized for developers
 brew install ripgrep
 ```
 
+### fd (https://github.com/sharkdp/fd)
+
+Simple, fast and user-friendly alternative to find
+
+```
+brew install fd
+```
+
+### fzf ([https://github.com/sharkdp/fd](https://github.com/junegunn/fzf))
+
+Command-line fuzzy finder
+
+```
+brew install fzf
+```
+
 ### iterm2 (https://www.iterm2.com/)
 
 Terminal replacement on stereoids
@@ -74,11 +90,12 @@ cat and less replacement with syntax highlighting and git integration
 brew install bat
 ```
 
-### JetBrains Mono font (https://github.com/sharkdp/bat)
+### JetBrains Mono font (https://www.jetbrains.com/lp/mono/)
 
 Best font for development
 
 ```
+brew tap homebrew/cask-fonts
 brew cask install font-jetbrains-mono
 ```
 
