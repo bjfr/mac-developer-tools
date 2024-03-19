@@ -107,6 +107,15 @@ Free code editor
 brew cask install visual-studio-code
 ```
 
+### Duf (https://github.com/muesli/duf)
+
+A better df cli command
+
+```
+brew install duf
+```
+
+
 # Online services for developers (not only Mac)
 
 ### httpbin (https://httpbin.org/)
