@@ -131,5 +131,16 @@ Random simple tools for encryption, hashing, conversion etc.
 Amazing visualization tool for JSON files.
 
 
+### Installation
+
+Use the following command to install it from the Homebrew repo
+
+```sh
+grep -Ev '^\s*($|#)' yourfile.txt | xargs brew install
+```
+
+homebrew.txt
+
+
 
 
