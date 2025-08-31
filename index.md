@@ -8,6 +8,14 @@ The missing package manager for macOS.
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
+### homebrew (https://brew.sh/)
+
+The missing package manager for macOS.
+
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
 ### httpie (https://httpie.org/)
 
 HTTPie is a command line HTTP client with an intuitive UI, JSON support, syntax highlighting, wget-like downloads, plugins, and more.
@@ -139,7 +147,7 @@ Use the following command to install it from the Homebrew repo
 grep -Ev '^\s*($|#)' yourfile.txt | xargs brew install
 ```
 
-homebrew.txt
+[Homebrew](./homebrew-apps)
 
 
 
