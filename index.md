@@ -144,10 +144,10 @@ Amazing visualization tool for JSON files.
 Use the following command to install it from the Homebrew repo
 
 ```sh
-grep -Ev '^\s*($|#)' yourfile.txt | xargs brew install
+curl https://bjfr.github.io/mac-developer-tools/homebrew-apps.txt | grep -Ev '^\s*($|#)' | xargs brew install
 ```
 
-[Homebrew](./homebrew-apps)
+[Homebrew](./homebrew-apps.txt)
 
 
 

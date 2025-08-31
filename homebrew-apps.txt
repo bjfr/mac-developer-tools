@@ -4,7 +4,7 @@
 
 # Automation tool for configuration management
 # https://www.ansible.com/
-ansible
+# ansible
 
 # AWS command line interface for managing services
 # https://aws.amazon.com/cli/
