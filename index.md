@@ -5,15 +5,15 @@
 The missing package manager for macOS.
 
 ```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### homebrew (https://brew.sh/)
+### SDKman (https://sdkman.io/)
 
-The missing package manager for macOS.
+Managinge multiple Software Development Kits and Java Development Tools.
 
 ```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+curl -s "https://get.sdkman.io" | bash
 ```
 
 ### httpie (https://httpie.org/)
@@ -144,10 +144,10 @@ Amazing visualization tool for JSON files.
 Use the following command to install it from the Homebrew repo
 
 ```sh
-curl https://bjfr.github.io/mac-developer-tools/homebrew-apps.txt | grep -Ev '^\s*($|#)' | xargs brew install
+curl -s https://bjfr.github.io/mac-developer-tools/homebrew-core.md | grep '^[[:alnum:]]' | xargs brew install
 ```
 
-[Homebrew](./homebrew-apps.txt)
+[Homebrew](./homebrew-core.md)
 
 
 

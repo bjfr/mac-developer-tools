@@ -4,108 +4,35 @@
 
 # Automation tool for configuration management
 # https://www.ansible.com/
-# ansible
-
-# AWS command line interface for managing services
-# https://aws.amazon.com/cli/
-awscli
-
-# Microsoft Azure command line interface
-# https://learn.microsoft.com/en-us/cli/azure/
-azure-cli
+ansible
 
 # Azure Functions Core Tools for local development
 # https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local
 azure-functions-core-tools@4
 
-# A cat clone with syntax highlighting
-# https://github.com/sharkdp/bat
-bat
-
-# .NET platform command-line tools
-# https://dotnet.microsoft.com/
-dotnet
-
 # Disk usage/management utility
 # https://github.com/muesli/duf
 duf
 
-# Modern replacement for 'ls' with extra features
-# https://github.com/ogham/exa
-eza
-
-# Command-line fuzzy finder
-# https://github.com/junegunn/fzf
-fzf
-
-# GitHub CLI tool
-# https://cli.github.com/
-gh
-
-# Distributed version control system
-# https://git-scm.com/
-git
-
-# User-friendly command-line HTTP client
-# https://httpie.io/
-httpie
-
-# Kubernetes command-line tool
-# https://kubernetes.io/docs/tasks/tools/
-kubernetes-cli
-
 # Modern replacement for ls command
 # https://github.com/Peltoche/lsd
-# lsd
-
-# Node.js
-# https://nodejs.org/
-# node
-
-# VPN client for Cisco AnyConnect
-# https://www.openconnect.org/
-# openconnect
+lsd
 
 # Python version management tool
 # https://github.com/pyenv/pyenv
-# pyenv
+pyenv
 
 # Virtualenv wrapper for pyenv
 # https://github.com/pyenv/pyenv-virtualenvwrapper
-# pyenv-virtualenvwrapper
+pyenv-virtualenvwrapper
 
 # Python
 # https://www.python.org/
-# python
-
-# GNU Readline library
-# Fast search tool for files
-# https://github.com/BurntSushi/ripgrep
-ripgrep
-
-# Search tool supporting PDFs, ePubs, etc.
-# https://github.com/phiresky/ripgrep-all
-ripgrep-all
-
-# Cloud-native edge router
-# https://traefik.io/
-traefik
+python
 
 # Command-line BitTorrent client
 # https://transmissionbt.com/
 transmission-cli
-
-# Command-line trash management
-# https://github.com/andreafrancia/trash-cli
-trash-cli
-
-# Display directory trees
-# http://mama.indstate.edu/users/ice/tree/
-tree
-
-# JavaScript package manager
-# https://yarnpkg.com/
-# yarn
 
 # Zsh shell completions
 # https://github.com/zsh-users/zsh-completions
@@ -263,14 +190,6 @@ spotify
 # https://www.virtualbox.org/
 # virtualbox
 
-# Source code editor
-# https://code.visualstudio.com/
-visual-studio-code
-
-# Java monitoring and profiling tool
-# https://visualvm.github.io/
-visualvm
-
 # Media player for audio and video
 # https://www.videolan.org/vlc/
 # vlc
@@ -290,3 +209,4 @@ visualvm
 # System monitoring tool with web interface
 # https://nicolargo.github.io/glances/
 # glances
+
