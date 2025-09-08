@@ -141,11 +141,27 @@ Amazing visualization tool for JSON files.
 
 ### Installation
 
-Use the following command to install it from the Homebrew repo
+Use the following command to install Homebrew the apps
+
+#### Homebrew Core
+
 
 ```sh
 curl -s https://bjfr.github.io/mac-developer-tools/homebrew-core.md | grep '^[[:alnum:]]' | xargs brew install
 ```
+
+#### Homebrew Development
+
+```sh
+curl -s https://bjfr.github.io/mac-developer-tools/homebrew-development.md | grep '^[[:alnum:]]' | xargs brew install
+```
+
+#### SDKMan
+
+```sh
+curl -s "https://bjfr.github.io/mac-developer-tools/sdkman.sh" | bash
+```
+
 
 [Homebrew](./homebrew-core.md)
 
