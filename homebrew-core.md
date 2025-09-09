@@ -79,9 +79,9 @@ keepassxc
 # https://maccy.app/
 maccy
 
-# Music streaming service
-# https://www.spotify.com/
-spotify
+# Team communication platform
+# https://slack.com/
+slack
 
 whatsapp
 
