@@ -63,3 +63,6 @@ jetbrains-toolbox
 # Source code editor
 # https://code.visualstudio.com/
 visual-studio-code
+
+redis-insight
+
