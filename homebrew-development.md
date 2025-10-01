@@ -66,3 +66,4 @@ visual-studio-code
 
 redis-insight
 
+lazygit
