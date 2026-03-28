@@ -8,11 +8,11 @@ The missing package manager for macOS.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Export script: (brew-export.sh)
+Export script: [brew-export.sh](brew-export.sh)
 
-Import script: (brew-import-sh)
+Import script: [brew-import-sh](brew-import-sh)
 
-Recommended install list: (brew-packages.txt)
+Recommended install list: [brew-packages.txt](brew-packages.txt)
 
 ### SDKman (https://sdkman.io/)
 
