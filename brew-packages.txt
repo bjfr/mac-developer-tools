@@ -1,0 +1,76 @@
+# Homebrew package export
+# Generated on: Sat Mar 28 11:19:20 CET 2026
+# Hostname: Bjorns-MacBook-Pro.local
+# Homebrew version: Homebrew 5.1.1
+
+### TAPS ###
+
+### FORMULAE ###
+antidote
+awscli
+azure-cli
+bash
+bat
+cloudflared
+csvkit
+docker-compose
+dotnet
+eza
+f3
+fd
+fzf
+gemini-cli
+gh
+git
+glab
+httpie
+kubernetes-cli
+lazygit
+libiconv
+mas
+opencode
+postgresql@17
+powerlevel10k
+redis
+ripgrep-all
+traefik
+trash-cli
+tree
+uv
+zoxide
+
+### CASKS ###
+bitwarden
+claude
+claude-code
+daisydisk
+dbeaver-community
+docker-desktop
+dotnet-sdk
+font-jetbrains-mono-nerd-font
+gcloud-cli
+google-chrome
+google-drive
+iterm2
+jetbrains-toolbox
+keepassxc
+maccy
+ollama-app
+opencode-desktop
+openvpn-connect
+rectangle
+redis-insight
+slack
+spotify
+sweet-home3d
+tunnelblick
+visual-studio-code
+whatsapp
+
+### MAS (Mac App Store) ###
+ 682658836  GarageBand  (10.4.13)
+1102004240  iHosts      (1.4.0)
+ 408981434  iMovie      (10.4.4)
+ 409183694  Keynote     (14.5)
+ 409203825  Numbers     (14.5)
+ 409201541  Pages       (14.5)
