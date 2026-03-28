@@ -10,7 +10,7 @@ The missing package manager for macOS.
 
 Export script: [brew-export.sh](brew-export.sh)
 
-Import script: [brew-import-sh](brew-import-sh)
+Import script: [brew-import.sh](brew-import.sh)
 
 Recommended install list: [brew-packages.txt](brew-packages.txt)
 
