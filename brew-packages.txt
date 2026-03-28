@@ -1,76 +1,131 @@
 # Homebrew package export
-# Generated on: Sat Mar 28 11:19:20 CET 2026
-# Hostname: Bjorns-MacBook-Pro.local
+# Generated on: Sat Mar 28 10:53:04 CET 2026
 # Homebrew version: Homebrew 5.1.1
 
 ### TAPS ###
 
 ### FORMULAE ###
+# Zsh plugin manager — plugins defined in .zsh_plugins.txt
 antidote
+# Official AWS command-line interface for managing cloud resources and services
 awscli
+# Official Microsoft Azure CLI for managing Azure cloud resources
 azure-cli
+# Latest version of the Bash shell (macOS ships an older one due to licensing)
 bash
+# A cat clone with syntax highlighting, line numbers, and Git integration
 bat
+# Cloudflare Tunnel client — exposes local services via Cloudflare
 cloudflared
-csvkit
+# Define and run multi-container Docker applications using a YAML file
 docker-compose
+# Microsoft .NET runtime and SDK for building cross-platform applications
 dotnet
+# Modern ls replacement with colour, icons, tree view, and Git status
 eza
-f3
+# Fast and user-friendly alternative to the find command
 fd
+# General-purpose fuzzy finder for the terminal — files, history, and more
 fzf
+# Google Gemini AI assistant for the command line
 gemini-cli
+# Official GitHub CLI — PRs, issues, and repo management from the terminal
 gh
+# Distributed version control system
 git
+# Official GitLab CLI — MRs, issues, and pipeline management from the terminal
 glab
+# Human-friendly HTTP client for the terminal
 httpie
+# kubectl — the official CLI for managing Kubernetes clusters
 kubernetes-cli
+# Terminal UI for Git — stage, commit, branch and diff
 lazygit
-libiconv
+# Mac App Store CLI — install and update App Store apps from the terminal
 mas
+# AI coding assistant for the terminal
 opencode
+# PostgreSQL 17 relational database server
 postgresql@17
+# Fast and highly customisable Zsh prompt theme
 powerlevel10k
-redis
+# rga — extends ripgrep to search inside PDFs, Office docs and archives
 ripgrep-all
+# Cloud-native reverse proxy and load balancer with automatic service discovery
 traefik
+# Move files to the trash from the terminal instead of permanently deleting them
 trash-cli
+# Displays directory contents as a recursive tree structure
 tree
+# Extremely fast Python package and project manager, written in Rust
 uv
+# Smarter cd — learns your most-used directories and jumps fast
 zoxide
 
 ### CASKS ###
+# Open-source password manager with cross-device sync and secure vault
 bitwarden
+# Anthropic's Claude AI assistant desktop app
 claude
+# Anthropic's Claude AI coding agent for the terminal
 claude-code
+# Visual disk usage analyser — shows what's consuming your storage
 daisydisk
+# Universal database GUI — supports PostgreSQL, MySQL, SQLite, and many more
 dbeaver-community
+# Docker engine and GUI for building and running containers on macOS
 docker-desktop
+# Microsoft .NET SDK for developing .NET applications
 dotnet-sdk
+# JetBrains Mono patched with Nerd Font icons for terminal and editors
 font-jetbrains-mono-nerd-font
+# Google Cloud SDK — CLI tools for managing GCP resources
 gcloud-cli
+# Google Chrome web browser
 google-chrome
+# Google Drive desktop client for file sync and cloud storage
 google-drive
+# Feature-rich terminal emulator for macOS
 iterm2
+# JetBrains app manager — install and update JetBrains IDEs
 jetbrains-toolbox
+# Open-source offline password manager with a local encrypted database
 keepassxc
+# Lightweight clipboard manager for macOS — stores clipboard history
 maccy
+# Run large language models locally on your Mac
 ollama-app
+# AI coding assistant desktop app
 opencode-desktop
+# Official OpenVPN client for connecting to VPN servers
 openvpn-connect
+# Window management app — snap and resize windows with keyboard shortcuts
 rectangle
+# Official Redis GUI for browsing data, monitoring, and running commands
 redis-insight
+# Team messaging and collaboration platform
 slack
+# Music streaming service desktop client
 spotify
+# Interior design app for planning room layouts in 2D/3D
 sweet-home3d
+# Free and open-source OpenVPN client for macOS
 tunnelblick
+# Microsoft's popular open-source code editor
 visual-studio-code
+# WhatsApp desktop messaging client
 whatsapp
 
 ### MAS (Mac App Store) ###
+# Apple's music creation studio — recording, loops, and instruments
  682658836  GarageBand  (10.4.13)
+# /etc/hosts file editor with a simple GUI for managing host entries
 1102004240  iHosts      (1.4.0)
+# Apple's beginner-friendly video editing app
  408981434  iMovie      (10.4.4)
+# Apple's presentation app — alternative to PowerPoint
  409183694  Keynote     (14.5)
+# Apple's spreadsheet app — alternative to Excel
  409203825  Numbers     (14.5)
+# Apple's word processor — alternative to Word
  409201541  Pages       (14.5)
