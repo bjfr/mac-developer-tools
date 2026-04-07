@@ -1,6 +1,8 @@
 # Curated list of Mac OsX developer tools
 
-### homebrew (https://brew.sh/)
+## First install these
+
+### Homebrew (https://brew.sh/)
 
 The missing package manager for macOS.
 
@@ -8,26 +10,21 @@ The missing package manager for macOS.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Export script: [brew-export.sh](brew-export.sh)
+### SDKMan (https://sdkman.io/)
 
-Import script: [brew-import.sh](brew-import.sh)
-
-Recommended install list: [brew-packages.txt](brew-packages.txt)
-
-### SDKman (https://sdkman.io/)
-
-Managinge multiple Software Development Kits and Java Development Tools.
-
-Export script: 
-
-Import script: 
-
-Recommended install list
+Manage multiple Java version and Java Development Tools.
 
 ```
 curl -s "https://get.sdkman.io" | bash
 ```
 
+## Run these to install recommended applications
+
+Export script: [brew-export.sh](brew-export.sh)
+
+Import script: [brew-import.sh](brew-import.sh)
+
+Recommended install list: [brew-packages.txt](brew-packages.txt)
 
 
 
