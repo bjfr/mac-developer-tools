@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# brew-import.sh — install Homebrew packages from a brew-export.sh snapshot
+# brew-import.sh — install Homebrew packages + SDKMAN candidates from a brew-export.sh snapshot
 set -euo pipefail
 
 INPUT_FILE="${1:-brew-packages.txt}"
@@ -19,23 +19,63 @@ if [[ ! -f "$INPUT_FILE" ]]; then
   exit 1
 fi
 
-# Install Homebrew if missing
+# Warn once up front if tools are missing, so the loops stay clean
 if ! command -v brew &>/dev/null; then
-  info "Homebrew not found. Installing..."
-  if [[ "$DRY_RUN" == "--dry-run" ]]; then
-    info "[dry-run] Would install Homebrew"
-  else
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    # shellcheck disable=SC1091
-    eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null || /usr/local/bin/brew shellenv)"
-    command -v brew &>/dev/null || { error "brew still not found after install — check your architecture (ARM vs Intel)"; exit 1; }
-  fi
+  warn "brew not installed — Homebrew packages will be skipped. Install from https://brew.sh"
 fi
-
-# Warn once up front if mas is missing, so the loop stays clean
 if ! command -v mas &>/dev/null; then
   warn "mas not installed — App Store apps will be skipped. Install with: brew install mas"
 fi
+
+# ── SDKMAN bootstrap ─────────────────────────────────────────────────────────
+_sdkman_loaded=false
+
+_load_sdkman() {
+  $_sdkman_loaded && return 0
+  local init="${SDKMAN_DIR:-$HOME/.sdkman}/bin/sdkman-init.sh"
+  if [[ -f "$init" ]]; then
+    set +u
+    # shellcheck disable=SC1090
+    source "$init"
+    set -u
+    _sdkman_loaded=true
+    return 0
+  fi
+  return 1
+}
+
+_ensure_sdkman() {
+  if _load_sdkman; then
+    return 0
+  fi
+  info "SDKMAN not found. Installing..."
+  if [[ "$DRY_RUN" == "--dry-run" ]]; then
+    info "[dry-run] Would install SDKMAN"
+    return 0
+  fi
+  curl -s "https://get.sdkman.io" | bash
+  local init="${SDKMAN_DIR:-$HOME/.sdkman}/bin/sdkman-init.sh"
+  if [[ -f "$init" ]]; then
+    set +u
+    # shellcheck disable=SC1090
+    source "$init"
+    set -u
+    _sdkman_loaded=true
+  else
+    error "SDKMAN install appeared to succeed but init script not found at $init"
+    return 1
+  fi
+}
+
+# Wrapper to suppress -u for the duration of any sdk call, since SDKMAN's
+# internal scripts reference variables that may be unbound in a bash context.
+run_sdk() {
+  set +u
+  sdk "$@" < /dev/null
+  local rc=$?
+  set -u
+  return $rc
+}
 
 # Counters
 installed=0; skipped=0; failed=0
@@ -66,6 +106,7 @@ install_pkg() {
 
 # ── Parse and install ────────────────────────────────────────────────────────
 section=""
+declare -a sdk_defaults=()
 
 while IFS= read -r line; do
   # Detect section headers first, before the comment filter
@@ -74,6 +115,7 @@ while IFS= read -r line; do
     "### FORMULAE ###")              section="formulae"; continue ;;
     "### CASKS ###")                 section="casks";    continue ;;
     "### MAS (Mac App Store) ###")   section="mas";      continue ;;
+    "### SDKMAN ###")                section="sdkman";   continue ;;
   esac
 
   # Skip comments and blanks
@@ -81,17 +123,20 @@ while IFS= read -r line; do
 
   case "$section" in
     taps)
+      command -v brew &>/dev/null || { skipped=$((skipped + 1)); continue; }
       already=$(brew tap | grep -x "$line" || true)
       install_pkg "tap $line" "$already" brew tap "$line"
       ;;
 
     formulae)
+      command -v brew &>/dev/null || { skipped=$((skipped + 1)); continue; }
       name="${line%% *}"
       already=$(brew list --formula 2>/dev/null | grep -x "$name" || true)
       install_pkg "$name" "$already" brew install "$name"
       ;;
 
     casks)
+      command -v brew &>/dev/null || { skipped=$((skipped + 1)); continue; }
       name="${line%% *}"
       already=$(brew list --cask 2>/dev/null | grep -x "$name" || true)
       install_pkg "$name" "$already" brew install --cask "$name"
@@ -104,9 +149,45 @@ while IFS= read -r line; do
       already=$(mas list 2>/dev/null | grep "^${app_id} " || true)
       install_pkg "$app_name" "$already" mas install "$app_id"
       ;;
+
+    sdkman)
+      candidate="${line%% *}"
+      rest="${line#* }"
+      version="${rest%% *}"
+      is_default=""
+      [[ "$rest" == *" default"* || "$rest" == "default" ]] && is_default="yes"
+
+      _ensure_sdkman || { warn "Skipping SDKMAN entry ($candidate $version) — SDKMAN unavailable"; failed=$((failed+1)); continue; }
+
+      SDKMAN_CANDIDATES_DIR="${SDKMAN_DIR:-$HOME/.sdkman}/candidates"
+      already=""
+      [[ -d "$SDKMAN_CANDIDATES_DIR/$candidate/$version" ]] && already="yes"
+
+      install_pkg "sdk $candidate $version" "$already" run_sdk install "$candidate" "$version"
+
+      [[ -n "$is_default" ]] && sdk_defaults+=("$candidate $version")
+      ;;
   esac
 
 done < "$INPUT_FILE"
+
+# ── Apply SDKMAN defaults ────────────────────────────────────────────────────
+if [[ ${#sdk_defaults[@]} -gt 0 ]]; then
+  echo
+  info "Applying SDKMAN defaults..."
+  _load_sdkman || true
+  for entry in "${sdk_defaults[@]}"; do
+    candidate="${entry%% *}"
+    version="${entry#* }"
+    if [[ "$DRY_RUN" == "--dry-run" ]]; then
+      info "[dry-run] Would run: sdk default $candidate $version"
+    elif run_sdk default "$candidate" "$version"; then
+      success "Set default: $candidate $version"
+    else
+      warn "Failed to set default for $candidate $version"
+    fi
+  done
+fi
 
 # ── Summary ──────────────────────────────────────────────────────────────────
 echo

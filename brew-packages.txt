@@ -1,131 +1,154 @@
 # Homebrew package export
-# Generated on: Sat Mar 28 10:53:04 CET 2026
-# Homebrew version: Homebrew 5.1.1
+# Generated on: Wed Apr  8 14:27:14 CEST 2026
+# Hostname: Bjorns-MacBook-Pro.local
+# Homebrew version: Homebrew 5.1.4
 
 ### TAPS ###
 
 ### FORMULAE ###
-# Zsh plugin manager — plugins defined in .zsh_plugins.txt
+# Zsh plugin manager
 antidote
-# Official AWS command-line interface for managing cloud resources and services
+# Amazon Web Services command line interface
 awscli
-# Official Microsoft Azure CLI for managing Azure cloud resources
+# Microsoft Azure command line interface
 azure-cli
-# Latest version of the Bash shell (macOS ships an older one due to licensing)
-bash
-# A cat clone with syntax highlighting, line numbers, and Git integration
+# Cat clone with syntax highlighting and Git integration
 bat
-# Cloudflare Tunnel client — exposes local services via Cloudflare
+# Cloudflare Tunnel client for secure remote access
 cloudflared
-# Define and run multi-container Docker applications using a YAML file
+# Suite of utilities for converting and working with CSV files
+csvkit
+# Define and run multi-container Docker applications
 docker-compose
-# Microsoft .NET runtime and SDK for building cross-platform applications
+# Cross-platform .NET runtime
 dotnet
-# Modern ls replacement with colour, icons, tree view, and Git status
+# Modern replacement for ls with Git support and icons
 eza
-# Fast and user-friendly alternative to the find command
+# Fast and user-friendly alternative to find
 fd
-# General-purpose fuzzy finder for the terminal — files, history, and more
+# General-purpose command-line fuzzy finder
 fzf
-# Google Gemini AI assistant for the command line
+# Google Gemini AI assistant for the terminal
 gemini-cli
-# Official GitHub CLI — PRs, issues, and repo management from the terminal
+# GitHub CLI for managing repos, PRs, and issues from the terminal
 gh
 # Distributed version control system
 git
-# Official GitLab CLI — MRs, issues, and pipeline management from the terminal
+# GitLab CLI for managing repos, MRs, and pipelines from the terminal
 glab
-# Human-friendly HTTP client for the terminal
+# User-friendly HTTP client for testing and debugging APIs
 httpie
-# kubectl — the official CLI for managing Kubernetes clusters
+# Kubernetes command-line tool (kubectl)
 kubernetes-cli
-# Terminal UI for Git — stage, commit, branch and diff
+# Terminal UI for managing Docker containers and images
+lazydocker
+# Terminal UI for Git with diffs, branches, and staging
 lazygit
-# Mac App Store CLI — install and update App Store apps from the terminal
+# Mac App Store command-line interface
 mas
 # AI coding assistant for the terminal
 opencode
-# PostgreSQL 17 relational database server
+# PostgreSQL relational database, version 17
 postgresql@17
-# Fast and highly customisable Zsh prompt theme
+# Fast and flexible Zsh prompt theme
 powerlevel10k
-# rga — extends ripgrep to search inside PDFs, Office docs and archives
+# In-memory data structure store, used as cache and message broker
+redis
+# Ripgrep wrapper that also searches PDFs, Office docs, and archives
 ripgrep-all
-# Cloud-native reverse proxy and load balancer with automatic service discovery
+# Modern reverse proxy and load balancer
 traefik
-# Move files to the trash from the terminal instead of permanently deleting them
+# Move files to the trash safely from the command line
 trash-cli
-# Displays directory contents as a recursive tree structure
+# Display directory structure as a tree
 tree
-# Extremely fast Python package and project manager, written in Rust
+# Fast Python package installer and project manager
 uv
-# Smarter cd — learns your most-used directories and jumps fast
+# Command-line XML and XSLT toolkit
+xmlstarlet
+# Smarter cd command that learns your most-used directories
 zoxide
 
 ### CASKS ###
-# Open-source password manager with cross-device sync and secure vault
+# Open-source password manager with end-to-end encryption
 bitwarden
-# Anthropic's Claude AI assistant desktop app
+# Anthropic Claude AI assistant desktop app
 claude
-# Anthropic's Claude AI coding agent for the terminal
+# Anthropic Claude AI coding agent CLI
 claude-code
-# Visual disk usage analyser — shows what's consuming your storage
-daisydisk
-# Universal database GUI — supports PostgreSQL, MySQL, SQLite, and many more
+# Universal database tool supporting SQL, NoSQL, and cloud databases
 dbeaver-community
-# Docker engine and GUI for building and running containers on macOS
+# Docker container platform with GUI for building and running containers
 docker-desktop
-# Microsoft .NET SDK for developing .NET applications
+# .NET SDK for building cross-platform applications
 dotnet-sdk
-# JetBrains Mono patched with Nerd Font icons for terminal and editors
+# JetBrains Mono typeface patched with Nerd Font icons
 font-jetbrains-mono-nerd-font
-# Google Cloud SDK — CLI tools for managing GCP resources
+# Google Cloud Platform command-line tools
 gcloud-cli
 # Google Chrome web browser
 google-chrome
-# Google Drive desktop client for file sync and cloud storage
+# Google Drive desktop sync client
 google-drive
-# Feature-rich terminal emulator for macOS
+# Advanced terminal emulator for macOS with split panes and profiles
 iterm2
-# JetBrains app manager — install and update JetBrains IDEs
+# JetBrains IDE manager for installing and updating JetBrains tools
 jetbrains-toolbox
-# Open-source offline password manager with a local encrypted database
+# Cross-platform password manager compatible with KeePass databases
 keepassxc
-# Lightweight clipboard manager for macOS — stores clipboard history
+# Lightweight clipboard history manager for macOS
 maccy
-# Run large language models locally on your Mac
+# Desktop app for running large language models locally
 ollama-app
-# AI coding assistant desktop app
+# AI coding assistant desktop application
 opencode-desktop
-# Official OpenVPN client for connecting to VPN servers
+# OpenVPN client for secure VPN connections
 openvpn-connect
-# Window management app — snap and resize windows with keyboard shortcuts
+# Window snapping and management utility for macOS
 rectangle
-# Official Redis GUI for browsing data, monitoring, and running commands
+# GUI for browsing and managing Redis databases
 redis-insight
 # Team messaging and collaboration platform
 slack
-# Music streaming service desktop client
+# Music streaming service
 spotify
-# Interior design app for planning room layouts in 2D/3D
+# Interior design and home planning application
 sweet-home3d
-# Free and open-source OpenVPN client for macOS
+# Free OpenVPN client for macOS
 tunnelblick
-# Microsoft's popular open-source code editor
+# Source code editor by Microsoft with extensive plugin support
 visual-studio-code
 # WhatsApp desktop messaging client
 whatsapp
 
 ### MAS (Mac App Store) ###
-# Apple's music creation studio — recording, loops, and instruments
+# Apple's music creation studio with loops and instruments
  682658836  GarageBand  (10.4.13)
-# /etc/hosts file editor with a simple GUI for managing host entries
+# Hosts file manager for macOS with quick switching between profiles
 1102004240  iHosts      (1.4.0)
-# Apple's beginner-friendly video editing app
+# Apple's video editing app for macOS
  408981434  iMovie      (10.4.4)
-# Apple's presentation app — alternative to PowerPoint
+# Apple's presentation software
  409183694  Keynote     (14.5)
-# Apple's spreadsheet app — alternative to Excel
+# Apple's spreadsheet software
  409203825  Numbers     (14.5)
-# Apple's word processor — alternative to Word
+# Apple's word processor
  409201541  Pages       (14.5)
+
+### SDKMAN ###
+# Java 11 LTS — Liberica JDK distribution
+java 11.0.30-librca
+# Java 17 LTS — Liberica JDK distribution
+java 17.0.18-librca
+# Java 21 LTS — Liberica JDK distribution
+java 21.0.10-librca
+# Java 25 — Liberica JDK distribution
+java 25.0.2-librca
+# Java 8 LTS — Liberica JDK distribution (default)
+java 8.0.482-librca default
+# Java build automation and dependency management tool (default)
+maven 3.9.13 default
+# Maven daemon for significantly faster repeated builds (default)
+mvnd 1.0.5 default
+# Visual tool for monitoring and profiling JVM applications (default)
+visualvm 2.2 default
