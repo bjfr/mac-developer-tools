@@ -124,7 +124,7 @@ install_pkg() {
 section=""
 declare -a sdk_defaults=()
 
-while IFS= read -r line; do
+while IFS= read -r line <&3; do
   # Detect section headers first, before the comment filter
   case "$line" in
     "### TAPS ###")                  section="taps";     continue ;;
@@ -202,7 +202,7 @@ while IFS= read -r line; do
       ;;
   esac
 
-done < "$INPUT_FILE"
+done 3< "$INPUT_FILE"
 
 # ── Apply SDKMAN defaults ────────────────────────────────────────────────────
 if [[ ${#sdk_defaults[@]} -gt 0 ]]; then
