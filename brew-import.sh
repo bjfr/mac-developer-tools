@@ -27,11 +27,27 @@ if ! command -v mas &>/dev/null; then
   warn "mas not installed — App Store apps will be skipped. Install with: brew install mas"
 fi
 
+# ── Cache installed package lists once before the loop ───────────────────────
+# Avoids spawning brew/mas per-package and prevents set -e from firing on
+# grep returning 1 (no match) mid-loop.
+_brew_taps=""
+_brew_formulae=""
+_brew_casks=""
+_mas_list=""
+if command -v brew &>/dev/null; then
+  _brew_taps=$(brew tap 2>/dev/null || true)
+  _brew_formulae=$(brew list --formula 2>/dev/null || true)
+  _brew_casks=$(brew list --cask 2>/dev/null || true)
+fi
+if command -v mas &>/dev/null; then
+  _mas_list=$(mas list 2>/dev/null || true)
+fi
+
 # ── SDKMAN bootstrap ─────────────────────────────────────────────────────────
 _sdkman_loaded=false
 
 _load_sdkman() {
-  $_sdkman_loaded && return 0
+  if $_sdkman_loaded; then return 0; fi
   local init="${SDKMAN_DIR:-$HOME/.sdkman}/bin/sdkman-init.sh"
   if [[ -f "$init" ]]; then
     set +u
@@ -118,35 +134,42 @@ while IFS= read -r line; do
     "### SDKMAN ###")                section="sdkman";   continue ;;
   esac
 
-  # Skip comments and blanks
-  [[ "$line" =~ ^#.*$ || -z "$line" ]] && continue
+  # Skip comments and blanks — use if/then to avoid set -e firing on a false
+  # [[ ]] && continue compound returning non-zero
+  if [[ "$line" =~ ^[[:space:]]*# || -z "$line" ]]; then
+    continue
+  fi
 
   case "$section" in
     taps)
-      command -v brew &>/dev/null || { skipped=$((skipped + 1)); continue; }
-      already=$(brew tap | grep -x "$line" || true)
+      if ! command -v brew &>/dev/null; then skipped=$((skipped + 1)); continue; fi
+      already=$(echo "$_brew_taps" | grep -x "$line" || true)
       install_pkg "tap $line" "$already" brew tap "$line"
+      # Refresh tap cache after a new tap is added
+      if [[ -z "$already" && "$DRY_RUN" != "--dry-run" ]]; then
+        _brew_taps=$(brew tap 2>/dev/null || true)
+      fi
       ;;
 
     formulae)
-      command -v brew &>/dev/null || { skipped=$((skipped + 1)); continue; }
+      if ! command -v brew &>/dev/null; then skipped=$((skipped + 1)); continue; fi
       name="${line%% *}"
-      already=$(brew list --formula 2>/dev/null | grep -x "$name" || true)
+      already=$(echo "$_brew_formulae" | grep -x "$name" || true)
       install_pkg "$name" "$already" brew install "$name"
       ;;
 
     casks)
-      command -v brew &>/dev/null || { skipped=$((skipped + 1)); continue; }
+      if ! command -v brew &>/dev/null; then skipped=$((skipped + 1)); continue; fi
       name="${line%% *}"
-      already=$(brew list --cask 2>/dev/null | grep -x "$name" || true)
+      already=$(echo "$_brew_casks" | grep -x "$name" || true)
       install_pkg "$name" "$already" brew install --cask "$name"
       ;;
 
     mas)
-      command -v mas &>/dev/null || { skipped=$((skipped + 1)); continue; }
+      if ! command -v mas &>/dev/null; then skipped=$((skipped + 1)); continue; fi
       app_id="${line%% *}"
       app_name="${line#* }"
-      already=$(mas list 2>/dev/null | grep "^${app_id} " || true)
+      already=$(echo "$_mas_list" | grep "^${app_id} " || true)
       install_pkg "$app_name" "$already" mas install "$app_id"
       ;;
 
@@ -155,17 +178,27 @@ while IFS= read -r line; do
       rest="${line#* }"
       version="${rest%% *}"
       is_default=""
-      [[ "$rest" == *" default"* || "$rest" == "default" ]] && is_default="yes"
+      if [[ "$rest" == *" default"* || "$rest" == "default" ]]; then
+        is_default="yes"
+      fi
 
-      _ensure_sdkman || { warn "Skipping SDKMAN entry ($candidate $version) — SDKMAN unavailable"; failed=$((failed+1)); continue; }
+      if ! _ensure_sdkman; then
+        warn "Skipping SDKMAN entry ($candidate $version) — SDKMAN unavailable"
+        failed=$((failed + 1))
+        continue
+      fi
 
       SDKMAN_CANDIDATES_DIR="${SDKMAN_DIR:-$HOME/.sdkman}/candidates"
       already=""
-      [[ -d "$SDKMAN_CANDIDATES_DIR/$candidate/$version" ]] && already="yes"
+      if [[ -d "$SDKMAN_CANDIDATES_DIR/$candidate/$version" ]]; then
+        already="yes"
+      fi
 
       install_pkg "sdk $candidate $version" "$already" run_sdk install "$candidate" "$version"
 
-      [[ -n "$is_default" ]] && sdk_defaults+=("$candidate $version")
+      if [[ -n "$is_default" ]]; then
+        sdk_defaults+=("$candidate $version")
+      fi
       ;;
   esac
 
@@ -192,11 +225,15 @@ fi
 # ── Summary ──────────────────────────────────────────────────────────────────
 echo
 echo "────────────────────────────────"
-[[ "$DRY_RUN" == "--dry-run" ]] && echo "Dry run complete — nothing was installed." || echo "Import complete."
+if [[ "$DRY_RUN" == "--dry-run" ]]; then
+  echo "Dry run complete — nothing was installed."
+else
+  echo "Import complete."
+fi
 echo -e "  ${GREEN}Installed:${NC} $installed"
 echo -e "  ${CYAN}Skipped:${NC}   $skipped  (already present)"
 echo -e "  ${RED}Failed:${NC}    $failed"
 echo "────────────────────────────────"
 
-[[ $failed -gt 0 ]] && exit 1
+if [[ $failed -gt 0 ]]; then exit 1; fi
 exit 0
